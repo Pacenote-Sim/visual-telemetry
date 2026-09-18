@@ -1,0 +1,39 @@
+{
+  "name": "visual-telemetry",
+  "version": "0.1.0",
+  "author": "Pacenote",
+  "description": "Draws a lap's telemetry: speed, revs, throttle and brake against distance, sectors marked, the circuit in the corner. One chart per lap, or laps of the team overlaid.",
+  "interface_version": 3,
+  "binary": "visual-telemetry",
+  "capabilities": {
+    "network": false,
+    "reads_driver_data": true,
+    "database": true,
+    "http": {
+      "title": "Visual telemetry",
+      "routes": [
+        {
+          "path": "/",
+          "access": "admin"
+        },
+        {
+          "path": "/style.css",
+          "access": "public"
+        },
+        {
+          "path": "/me",
+          "access": "driver"
+        },
+        {
+          "path": "/laps",
+          "access": "driver"
+        },
+        {
+          "path": "/charts",
+          "access": "custom",
+          "reason": "a chart is the team's to look at: any signed-in driver or administrator may open one, and nobody else"
+        }
+      ]
+    }
+  }
+}
